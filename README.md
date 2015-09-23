@@ -1,5 +1,5 @@
 # VkUtilities
-Ruby script utilities for vk.com social network.
+Ruby script utilities for https://vk.com social network.
 
 Scripts must be launched manualy at your terminal.
 
