@@ -1,4 +1,3 @@
-require 'optparse'
 require 'net/http'
 require 'json'
 
@@ -37,7 +36,7 @@ if ARGV.size >= 3
 
   writeHandler = File.new("Search result " + "#{personID.to_s}"+".txt", "w")
   writeHandler.puts(photoList).to_s
-  
+
   puts "Done, results at: Search result " + "#{personID.to_s}"+".txt"
 else
   puts "Usage: personID groupID {albom_id,albom_id,..}"
