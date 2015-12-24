@@ -10,11 +10,11 @@ Scripts must be launched manualy at your terminal.
 # PhotoSearch
 Can search photos in specified albom or alboms.
 Usage: 
-```bash
+```ruby
 $ ruby PhotoSearch.rb <autor_id> <group_id> <albom_id>
 ```
 or
-```bash
+```ruby
 $ ruby PhotoSearch.rb <autor_id> <group_id> {albom_id,albom_id...}
 ```
 Search results will be shown in Search result <autor_id>.txt file.
