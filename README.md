@@ -21,7 +21,9 @@ Search results will be shown in Search result <autor_id>.txt file.
 
 # PhotoReorder
 Requesting vk to reorder photos in specified album.
+
 Note: you need to manually receive access token by any possible authorization methods. Then manually insert it in to the code.
+
 Usage:
 ```ruby
 $ ruby PhotoReorder.rb <owner_id> <album_id> <asc or des>
