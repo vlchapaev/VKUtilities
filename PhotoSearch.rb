@@ -16,7 +16,8 @@ if ARGV.size >= 3
                       "owner_id=#{groupID}"+
                       "&album_id=#{albom}"+
                       "&offset=#{offset}"+
-                      "&count=1000")
+                      "&count=1000"+
+                      "v=5.73")
 
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
