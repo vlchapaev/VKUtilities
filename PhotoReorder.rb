@@ -15,7 +15,9 @@ def getPhotoList()
                         "owner_id=#{$groupID}"+
                         "&album_id=#{$albomID}"+
                         "&offset=#{offset}"+
-                        "&count=1000"
+                        "&count=1000"+
+						"&access_token=#{$access_token}"+
+						"&v=5.60"
 
     uri = URI.parse(photosGetAddress)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -23,10 +25,10 @@ def getPhotoList()
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
     hashData = JSON.parse(response.body)
-    responseList = hashData["response"]
+    responseList = hashData["response"]["items"]
     offset += 1000
     for record in responseList
-      temp = {"id" => record["pid"], "date" => record["created"]}
+      temp = {"id" => record["id"], "date" => record["date"]}
       photoList.push(temp)
     end
   end
@@ -48,7 +50,8 @@ def sortPhotos(isAscending, photoList)
                             "owner_id=#{$groupID}"+
                             "&photo_id=#{photoID}"+
                             "&after=#{afterID}"+
-                            "&access_token=#{$access_token}"
+                            "&access_token=#{$access_token}"+
+							"&v=5.21"
     uri = URI.parse(photosReorderAddress)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
@@ -56,7 +59,7 @@ def sortPhotos(isAscending, photoList)
     http.request(request)
     puts "Row:#{row}"
     row+=1
-    sleep(1)
+    sleep(0.3)
   end
 end
 
@@ -70,7 +73,7 @@ if ARGV.size == 3
   photoList = getPhotoList()
   puts "Sorting photos"
   sortPhotos(isAscending, photoList)
-  puts "Sort is finished, check ypur albom"
+  puts "Sort is finished, check your album"
 else
   puts "Usage: <owner_id> <albom_id> <asc or des>"
 end
